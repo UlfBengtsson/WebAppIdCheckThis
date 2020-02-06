@@ -1,0 +1,13 @@
+﻿@model IdentityUser
+@{
+    ViewData["Title"] = "Manage";
+}
+
+<h1>Manage</h1>
+
+<dl>
+    <dt>Username</dt>
+    <dd>@Model.UserName</dd>
+    <dt>Email</dt>
+    <dd>@Model.Email - <a class="btn btn-warning" asp-action="ChangeEmail">Change</a></dd>
+</dl>
