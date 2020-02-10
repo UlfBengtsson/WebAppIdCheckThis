@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WebAppIdCheck.Models;
 
 namespace WebAppIdCheck.Data
 {
@@ -12,5 +13,7 @@ namespace WebAppIdCheck.Data
             : base(options)
         {
         }
+
+        public DbSet<Dog> Dogs { get; set; }
     }
 }

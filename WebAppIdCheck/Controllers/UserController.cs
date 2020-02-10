@@ -85,7 +85,7 @@ namespace WebAppIdCheck.Controllers
             {
                 IdentityUser user = new IdentityUser() { UserName = userViewModel.UserName, Email = userViewModel.Email };
 
-                var result = await _userManager.CreateAsync(user, userViewModel.Password);
+                IdentityResult result = await _userManager.CreateAsync(user, userViewModel.Password);
                 
                 if (result.Succeeded)
                 {
@@ -93,7 +93,7 @@ namespace WebAppIdCheck.Controllers
                 }
                 foreach (var item in result.Errors)
                 {
-                    ModelState.AddModelError("", item.Description);
+                    ModelState.AddModelError(string.Empty, item.Description);
                 }
             }
             return View(userViewModel);
@@ -117,10 +117,10 @@ namespace WebAppIdCheck.Controllers
                 if (user != null)
                 {
                     var result = await _signInManager.PasswordSignInAsync(
-                        user.UserName,
-                        login.Password,
-                        false,
-                        lockoutOnFailure: true
+                        userName:           user.UserName,
+                        password:           login.Password,
+                        isPersistent:       false,
+                        lockoutOnFailure:   true
                     );
 
                     if (result.Succeeded)

@@ -12,6 +12,9 @@ using WebAppIdCheck.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebAppIdCheck.Models;
+using WebAppIdCheck.Models.Services;
+using WebAppIdCheck.Models.Repos;
 
 namespace WebAppIdCheck
 {
@@ -47,6 +50,9 @@ namespace WebAppIdCheck
                 options.Password.RequiredUniqueChars = 1;
             });
             //More Identity settings ca be found at https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-3.1&tabs=visual-studio
+
+            services.AddScoped<IDogsService, DogsService>();
+            services.AddScoped<IDogsRepository, DogsRepository>();
 
             services.AddMvc();
         }
