@@ -21,7 +21,7 @@ namespace WebAppIdCheck.Controllers
         // GET: Dogs
         public IActionResult Index()
         {
-            return View();
+            return View(_dogsService.All());
         }
 
         // GET: Dogs/Details/5

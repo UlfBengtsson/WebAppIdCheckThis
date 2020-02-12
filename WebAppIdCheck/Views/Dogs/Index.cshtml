@@ -38,9 +38,9 @@
                     @Html.DisplayFor(modelItem => item.Breed)
                 </td>
                 <td>
-                    <a class="btn btn-info"     asp-action="Details" asp-route-id="item.Id">Details</a>
-                    <a class="btn btn-warning"  asp-action="Edit"    asp-route-id="item.Id">Edit</a>
-                    <a class="btn btn-danger"   asp-action="Delete"  asp-route-id="item.Id">Delete</a>
+                    <a class="btn btn-info"     asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-warning"  asp-action="Edit"    asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-danger"   asp-action="Delete"  asp-route-id="@item.Id">Delete</a>
 
                     @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
                         @Html.ActionLink("Details", "Details", new {  id=item.Id  }) |

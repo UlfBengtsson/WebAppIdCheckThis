@@ -1,19 +1,18 @@
-﻿@model WebAppIdCheck.Models.Dog
+﻿@model WebAppIdCheck.Models.ViewModels.DogViewModel
 
 @{
-    ViewBag.Title = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Edit</h1>
+<h1>Create</h1>
 
 <h4>Dog</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="Create">
 
-            <input type="hidden" asp-for="Id" class="form-control" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -26,7 +25,7 @@
                 <span asp-validation-for="Breed" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
