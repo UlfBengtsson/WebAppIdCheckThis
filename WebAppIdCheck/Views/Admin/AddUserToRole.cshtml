@@ -1,0 +1,24 @@
+﻿@model UserRoleViewModel
+@{
+    ViewData["Title"] = "AddUserToRole";
+}
+
+<h1>AddUserToRole</h1>
+
+<form asp-action="AddUserToRole" method="post">
+    <select name="UserId">
+        @foreach (var item in Model.UserList)
+        {
+            <option value="@item.Id">@item.UserName</option>
+        }
+    </select>
+
+    <select name="RoleId">
+        @foreach (var item in Model.RoleList)
+        {
+            <option value="@item.Id">@item.NormalizedName</option>
+        }
+    </select>
+
+    <input class="btn btn-success" type="submit" value="Give role" />
+</form>

@@ -10,7 +10,7 @@ using WebAppIdCheck.Models.ViewModels;
 
 namespace WebAppIdCheck.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Guru")]
     public class RolesController : Controller
     {
 
