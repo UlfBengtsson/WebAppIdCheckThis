@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAppIdCheck.Models;
@@ -10,6 +11,7 @@ using WebAppIdCheck.Models.ViewModels;
 
 namespace WebAppIdCheck.Controllers
 {
+    [Authorize]
     public class DogsController : Controller
     {
         IDogsService _dogsService;
@@ -19,12 +21,14 @@ namespace WebAppIdCheck.Controllers
         }
 
         // GET: Dogs
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(_dogsService.All());
         }
 
         // GET: Dogs/Details/5
+        [AllowAnonymous]
         public IActionResult Details(int id)
         {
             return View(_dogsService.Find(id));
